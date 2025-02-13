@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine for my Chilli Padi</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+            padding-top: 50px;
+        }
+        nav {
+            font-weight: bolder;
+            font-size: xx-large;
+            color: #cc0000;
+        }
+        p {
+            font-size: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        #YesValntine {
+            background-color: #ff9999;
+        }
+        #YesValntine:hover {
+            background-color: #ff6666;
+        }
+        #NoValentine {
+            background-color: #cccccc;
+        }
+        #NoValentine:hover {
+            background-color: #999999;
+        }
+
+        /* Heart Shape */
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #ff6699;
+            transform: rotate(-45deg);
+            border-radius: 50px 50px 0 0;
+            display: inline-block;
+            margin: 20px;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff6699;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        /* Ribbon */
+        .ribbon {
+            position: relative;
+            background: #cc0000;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 200px;
+            margin: 20px auto;
+        }
+
+        .ribbon::before,
+        .ribbon::after {
+            content: "";
+            position: absolute;
+            border-style: solid;
+            border-color: #cc0000 transparent transparent transparent;
+        }
+
+        .ribbon::before {
+            top: 100%;
+            left: 0;
+            border-width: 10px 10px 0 0;
+        }
+
+        .ribbon::after {
+            top: 100%;
+            right: 0;
+            border-width: 10px 0 0 10px;
+        }
+
+        .valentine-img-left {
+    float: left;
+}
+
+.valentine-img-right {
+    float: right;
+}
+
+.valentine-img-left img,
+.valentine-img-right img {
+    width: 80%;      /* Adjust this value to resize */
+    max-width: 400px; /* Maximum width to maintain quality */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <nav>Happy Valentine's Day ❤️</nav>
+
+    <div class="valentine-img-left">
+        <img src="photo_2025-02-13_08-32-49.png" alt="Left Image">
+    </div>
+    <div class="valentine-img-right">
+        <img src="photo_2025-02-13_08-32-40.png" alt="Right Image">
+    </div>  
+       
+
+    <div class="ribbon">Be My Valentine! 🎀</div>
+
+    <p>It's 2025's Valentine's Dayyy and I'm happy to be with my padi as her bean ❤️</p>
+
+    <div class="heart"></div>
+    <div class="heart"></div>
+
+    <p>Will you be my valentine?</p>
+    <button id="YesValntine">Yes</button>
+    <button id="NoValentine">No</button>
+
+    <script>
+        document.getElementById("YesValntine").addEventListener("click", function() {
+            alert("Yay! Happy Valentines beannnnn❤️. Hopefully we can get our plans for valentines properly😘 ");
+        });
+
+        document.getElementById("NoValentine").addEventListener("click", function() {
+            alert("Are you sure?😢😢😢");
+        });
+    </script>
+</body>
+</html>
