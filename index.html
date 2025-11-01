@@ -3,148 +3,282 @@
 <head>
     <title>Valentine for my Chilli Padi</title>
     <style>
-        body {
-            text-align: center;
-            background-color: #ffe6e6;
-            font-family: Arial, sans-serif;
-            padding-top: 50px;
-        }
-        nav {
-            font-weight: bolder;
-            font-size: xx-large;
-            color: #cc0000;
-        }
-        p {
-            font-size: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-        }
-        #YesValntine {
-            background-color: #ff9999;
-        }
-        #YesValntine:hover {
-            background-color: #ff6666;
-        }
-        #NoValentine {
-            background-color: #cccccc;
-        }
-        #NoValentine:hover {
-            background-color: #999999;
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+
+        :root {
+            --pink-light: #ffe6f0;
+            --pink: #ff9fbf;
+            --pink-dark: #ff5f8f;
+            --red: #c9184a;
+            --text: #432534;
         }
 
-        /* Heart Shape */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at top, #fff5f8, var(--pink-light));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 45px rgba(201, 24, 74, 0.15);
+            max-width: 960px;
+            width: 100%;
+            padding: 48px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before,
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: rgba(255, 159, 191, 0.18);
+            z-index: 0;
+        }
+
+        .card::before {
+            top: -120px;
+            right: -90px;
+        }
+
+        .card::after {
+            bottom: -140px;
+            left: -120px;
+        }
+
+        nav {
+            font-family: 'Pacifico', cursive;
+            font-size: 48px;
+            color: var(--red);
+            margin-bottom: 12px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 36px;
+            font-size: 20px;
+            line-height: 1.6;
+            z-index: 1;
+            position: relative;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin: 0 auto 32px;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 12px 24px rgba(67, 37, 52, 0.15);
+        }
+
+        .gallery img:first-child {
+            margin-top: 24px;
+        }
+
+        .ribbon {
+            background: linear-gradient(90deg, var(--red), var(--pink));
+            color: white;
+            padding: 12px 28px;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            width: fit-content;
+            margin: 32px auto 24px;
+            border-radius: 999px;
+            box-shadow: 0 10px 20px rgba(201, 24, 74, 0.25);
+            z-index: 1;
+            position: relative;
+        }
+
+        .hearts {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin: 32px 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
         .heart {
             position: relative;
-            width: 100px;
-            height: 100px;
-            background-color: #ff6699;
+            width: 90px;
+            height: 80px;
+            background: var(--pink);
             transform: rotate(-45deg);
-            border-radius: 50px 50px 0 0;
-            display: inline-block;
-            margin: 20px;
+            border-radius: 50% 50% 0 0;
+            animation: float 4s ease-in-out infinite;
+            box-shadow: 0 8px 16px rgba(255, 95, 143, 0.25);
         }
 
         .heart::before,
         .heart::after {
             content: "";
             position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: #ff6699;
+            width: 90px;
+            height: 80px;
+            background: var(--pink);
             border-radius: 50%;
         }
 
         .heart::before {
-            top: -50px;
+            top: -45px;
             left: 0;
         }
 
         .heart::after {
-            left: 50px;
+            left: 45px;
             top: 0;
         }
 
-        /* Ribbon */
-        .ribbon {
-            position: relative;
-            background: #cc0000;
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            font-weight: bold;
+        .heart:nth-child(2) {
+            animation-delay: 0.6s;
+            background: var(--pink-dark);
+        }
+
+        .heart:nth-child(2)::before,
+        .heart:nth-child(2)::after {
+            background: var(--pink-dark);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: rotate(-45deg) translateY(0);
+            }
+            50% {
+                transform: rotate(-45deg) translateY(-12px);
+            }
+        }
+
+        .question {
+            font-size: 22px;
             text-align: center;
-            width: 200px;
-            margin: 20px auto;
+            margin-bottom: 18px;
+            z-index: 1;
+            position: relative;
         }
 
-        .ribbon::before,
-        .ribbon::after {
-            content: "";
-            position: absolute;
-            border-style: solid;
-            border-color: #cc0000 transparent transparent transparent;
+        .actions {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            z-index: 1;
+            position: relative;
         }
 
-        .ribbon::before {
-            top: 100%;
-            left: 0;
-            border-width: 10px 10px 0 0;
+        button {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
 
-        .ribbon::after {
-            top: 100%;
-            right: 0;
-            border-width: 10px 0 0 10px;
+        #YesValntine {
+            background: var(--pink);
+            color: white;
+            box-shadow: 0 12px 24px rgba(255, 95, 143, 0.35);
         }
 
-        .valentine-img-left {
-    float: left;
-}
+        #YesValntine:hover {
+            background: var(--pink-dark);
+            transform: translateY(-3px);
+        }
 
-.valentine-img-right {
-    float: right;
-}
+        #NoValentine {
+            background: #f1f1f6;
+            color: var(--text);
+            box-shadow: 0 10px 20px rgba(67, 37, 52, 0.12);
+        }
 
-.valentine-img-left img,
-.valentine-img-right img {
-    width: 80%;      /* Adjust this value to resize */
-    max-width: 400px; /* Maximum width to maintain quality */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    object-fit: cover;
-}
+        #NoValentine:hover {
+            background: #e2e2ee;
+            transform: translateY(-3px);
+        }
 
+        @media (max-width: 768px) {
+            .card {
+                padding: 40px 28px;
+            }
 
+            nav {
+                font-size: 36px;
+            }
 
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .gallery {
+                gap: 18px;
+            }
+
+            .heart {
+                width: 70px;
+                height: 60px;
+            }
+
+            .heart::before,
+            .heart::after {
+                width: 70px;
+                height: 60px;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav>Happy Valentine's Day ❤️</nav>
+    <main class="card">
+        <nav>Happy Valentine's Day ❤️</nav>
+        <p class="subtitle">It's 2025 and I couldn't be happier spending it with my chilli padi. Thanks for being the sparkle in all of my days, my forever bean. ❤️</p>
 
-    <div class="valentine-img-left">
-        <img src="photo_2025-02-13_08-32-49.png" alt="Left Image">
-    </div>
-    <div class="valentine-img-right">
-        <img src="photo_2025-02-13_08-32-40.png" alt="Right Image">
-    </div>  
-       
+        <section class="gallery">
+            <img src="photo_2025-02-13_08-32-49.png" alt="Your smile lighting up the day">
+            <img src="photo_2025-02-13_08-32-40.png" alt="Us making memories together">
+        </section>
 
-    <div class="ribbon">Be My Valentine! 🎀</div>
+        <div class="ribbon">Be My Valentine! 🎀</div>
 
-    <p>It's 2025's Valentine's Dayyy and I'm happy to be with my padi as her bean ❤️</p>
+        <div class="hearts">
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
 
-    <div class="heart"></div>
-    <div class="heart"></div>
-
-    <p>Will you be my valentine?</p>
-    <button id="YesValntine">Yes</button>
-    <button id="NoValentine">No</button>
+        <p class="question">Will you be my Valentine again this year?</p>
+        <div class="actions">
+            <button id="YesValntine">Absolutely yes!</button>
+            <button id="NoValentine">Maybe... 👀</button>
+        </div>
+    </main>
 
     <script>
         document.getElementById("YesValntine").addEventListener("click", function() {
